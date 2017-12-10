@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {MetaMask} from './MetaMask/MetaMask';
 import {Counter} from './Counter';
+import {Health} from './Health';
 import './App.css';
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
       <div className="App">
         <MetaMask/>
         <Counter {...this.props} />
+        <Health {...this.props} />
       </div>
     );
   }

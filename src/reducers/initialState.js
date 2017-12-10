@@ -1,3 +1,6 @@
 export default {
-  count: 0
+  isFecthing: false,
+  count: 0,
+  message: '',
+  health: ''
 }; 

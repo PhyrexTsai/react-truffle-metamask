@@ -4,9 +4,15 @@ import {
   addAction,
   subAction
 } from '../actions/counterActions';
+import {
+  healthAction
+} from '../actions/healthActions';
 
 const  mapStateToProps = (state) => ({
-  count: state.count
+  isFetching: state.isFetching,
+  count: state.count,
+  message: state.message,
+  health: state.health
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -16,6 +22,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleSub: (num) => {
       dispatch(subAction(num));
+    },
+    handleHealth: () => {
+      dispatch(healthAction());
     }
   }
 };
