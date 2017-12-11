@@ -8,16 +8,20 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: ''
+      message: '',
+      web3: null,
     };
+    this.setWeb3 = this.setWeb3.bind(this);
   }
 
-  // TODO Dialog show popup to detect Metamask
+  setWeb3(web3) {
+    this.setState({web3});
+  }
 
   render() {
     return (
       <div className="App">
-        <MetaMask/>
+        <MetaMask {...this.state} setWeb3={this.setWeb3}/>
         <Counter {...this.props} />
         <Health {...this.props} />
       </div>
