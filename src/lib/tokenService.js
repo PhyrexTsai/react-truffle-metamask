@@ -1,8 +1,9 @@
 import SimpleToken from './SimpleToken.json';
 
+const contract = require('truffle-contract');
+const simpleToken = contract(SimpleToken);
+
 const setWeb3Provider = (web3) => {
-  const contract = require('truffle-contract');
-  const simpleToken = contract(SimpleToken);
   if (web3 !== null) {
     simpleToken.setProvider(web3.currentProvider);
   }
@@ -10,7 +11,47 @@ const setWeb3Provider = (web3) => {
 
 export const contractJSON = (web3) => {
   if (web3 === null) return;
-  console.log(web3);
   setWeb3Provider(web3);
-  return web3.eth.accounts[0];
+  /*var simpleTokenInstance;
+  simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a').then(function(instance) {
+    simpleTokenInstance = instance;
+    return simpleTokenInstance.decimals.call();
+  }).then(function(result) {
+    console.log('result: ', result.toNumber());
+    return simpleTokenInstance.name.call();
+  }).then(function(result) {
+    console.log('result: ', result);
+  })*/
+  const _name = name();
+  console.log(_name);
+}
+
+const name = async () => {
+  try {
+    const instance = await simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a');
+    const name = await instance.name.call();
+    return name;
+  } catch(e) {
+    console.log(e);
+  }
+}
+
+const decimals = async () => {
+  try {
+    const instance = await simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a');
+    const decimals = await instance.decimals.call();
+    return decimals.toNumber();
+  } catch(e) {
+    console.log(e);
+  }
+}
+
+const symbol = async () => {
+  try {
+    const instance = await simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a');
+    const symbol = await instance.symbol.call();
+    return symbol.toNumber();
+  } catch(e) {
+    console.log(e);
+  }
 }

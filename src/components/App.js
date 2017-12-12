@@ -26,7 +26,7 @@ class App extends Component {
         <MetaMask {...this.state} setWeb3={this.setWeb3}/>
         <Counter {...this.props} />
         <Health {...this.props} />
-        {/*<Contract {...this.props} {...this.state} />*/}
+        <Contract {...this.props} {...this.state} />
         <Button {...this.state}/>
       </div>
     );
