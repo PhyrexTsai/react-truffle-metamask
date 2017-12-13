@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {MetaMask} from './MetaMask/MetaMask';
 import {Counter} from './Counter';
 import {Health} from './Health';
-import {Contract} from './Contract';
+import Contract from './Contract';
 import Button from './Button';
 import './App.css';
 
