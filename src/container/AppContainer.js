@@ -6,7 +6,9 @@ import {
 } from '../actions/counterActions';
 import { healthAction } from '../actions/healthActions';
 import { 
-  simpleTokenNameAction 
+  simpleTokenNameAction, 
+  simpleTokenSymbolAction,
+  simpleTokenDecimalsAction,
 } from '../actions/simpleTokenActions';
 
 const  mapStateToProps = (state) => ({
@@ -28,8 +30,14 @@ const mapDispatchToProps = (dispatch) => {
     handleHealth: () => {
       dispatch(healthAction());
     },
-    handleSimpleTokenName: (web3) => {
-      dispatch(simpleTokenNameAction(web3));
+    handleSimpleTokenName: (networkId) => {
+      dispatch(simpleTokenNameAction(networkId));
+    },
+    handleSimpleTokenSymbol: (networkId) => {
+      dispatch(simpleTokenSymbolAction(networkId));
+    },
+    handleSimpleTokenDecimals: (networkId) => {
+      dispatch(simpleTokenDecimalsAction(networkId));
     }
   }
 };

@@ -8,6 +8,7 @@
     "yarn": "1.x.x"
   },
   "dependencies": {
+    "bluebird": "^3.4.7",
     "classnames": "^2.2.5",
     "material-ui": "^1.0.0-beta.6",
     "material-ui-icons": "^1.0.0-beta.5",
@@ -22,7 +23,7 @@
     "redux-saga": "^0.16.0",
     "truffle-contract": "^1.1.8",
     "truffle-hdwallet-provider": "0.0.3",
-    "web3": "^0.20.1"
+    "web3": "^0.20.2"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src -o src",

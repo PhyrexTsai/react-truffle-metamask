@@ -1,11 +1,16 @@
 import * as types from '../constants/actionTypes';
 
-export const simpleTokenNameAction = (web3) => ({
+export const simpleTokenNameAction = (networkId) => ({
   type: types.SIMPLE_TOKEN_NAME,
-  web3
+  networkId
 });
 
-export const simpleTokenSymbolAction = (web3) => ({
+export const simpleTokenSymbolAction = (networkId) => ({
   type: types.SIMPLE_TOKEN_SYMBOL,
-  web3
+  networkId
+});
+
+export const simpleTokenDecimalsAction = (networkId) => ({
+  type: types.SIMPLE_TOKEN_DECIMALS,
+  networkId
 });

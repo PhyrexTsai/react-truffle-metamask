@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { getCurrentAddress } from '../lib/web3Service';
+import { 
+  getCurrentAddress,
+  getCurrentNetwork,
+} from '../lib/web3Service';
 
 class Button extends Component {
   constructor(props) {
@@ -21,10 +24,12 @@ class Button extends Component {
 
   render() {
     const address = getCurrentAddress(this.props.web3);
+    const network = getCurrentNetwork(this.props.web3);
     return (
       <div style={{padding: '1em', margin: '1em', border: '1px solid black'}}>
         <h1>Send Transaction</h1>
         <div>To: {address}</div>
+        <div>Network: {network}</div>
         <button onClick={() => this.handleSubmit()}>Submit</button>
       </div>
     );

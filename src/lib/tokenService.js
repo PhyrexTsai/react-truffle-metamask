@@ -1,62 +1,48 @@
-import SimpleToken from './SimpleToken.json';
+import { getProvider, getSimpleTokenAddress } from './web3Service';
+import SimpleToken from './simpleToken';
 
-const contract = require('truffle-contract');
-const simpleToken = contract(SimpleToken);
+const Web3 = require('web3');
 
-const setWeb3Provider = (web3) => {
-  if (web3 !== null) {
-    simpleToken.setProvider(web3.currentProvider);
+let web3 = new Web3();
+let simpleTokenAddress = '0x0';
+
+const setWeb3Provider = (networkId) => {
+  web3.setProvider(new web3.providers.HttpProvider(getProvider(networkId)));
+  simpleTokenAddress = getSimpleTokenAddress(networkId);
+}
+
+export const getName = (networkId) => {
+  try {
+    setWeb3Provider(networkId);
+    const simpleToken = new SimpleToken(web3, simpleTokenAddress);
+    const result = simpleToken.name();
+    return result;
+  } catch (err) {
+    console.log('getName: ', err);
+    return 'name not found';
   }
 }
 
-export const contractJSON = (web3) => {
-  if (web3 === null) return;
-  setWeb3Provider(web3);
-  /*var simpleTokenInstance;
-  simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a').then(function(instance) {
-    simpleTokenInstance = instance;
-    return simpleTokenInstance.decimals.call();
-  }).then(function(result) {
-    console.log('result: ', result.toNumber());
-    return simpleTokenInstance.name.call();
-  }).then(function(result) {
-    console.log('result: ', result);
-  })*/
-  const _name = name();
-  console.log(_name);
-}
-
-export const getName = (web3) => {
-  setWeb3Provider(web3);
-  return 'text';
-}
-
-const name = async (web3) => {
+export const getSymbol = (networkId) => {
   try {
-    const instance = await simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a');
-    const name = await instance.name.call();
-    return name;
-  } catch(e) {
-    console.log(e);
+    setWeb3Provider(networkId);
+    const simpleToken = new SimpleToken(web3, simpleTokenAddress);
+    const result = simpleToken.symbol();
+    return result;
+  } catch (err) {
+    console.log('getSymbol: ', err);
+    return 'symbol not found';
   }
 }
 
-const decimals = async () => {
+export const getDecimals = (networkId) => {
   try {
-    const instance = await simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a');
-    const decimals = await instance.decimals.call();
-    return decimals.toNumber();
-  } catch(e) {
-    console.log(e);
-  }
-}
-
-const symbol = async () => {
-  try {
-    const instance = await simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a');
-    const symbol = await instance.symbol.call();
-    return symbol.toNumber();
-  } catch(e) {
-    console.log(e);
+    setWeb3Provider(networkId);
+    const simpleToken = new SimpleToken(web3, simpleTokenAddress);
+    const result = simpleToken.decimals();
+    return result;
+  } catch (err) {
+    console.log('getDecimals: ', err);
+    return 'decimals not found';
   }
 }

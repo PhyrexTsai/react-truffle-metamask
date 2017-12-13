@@ -60,19 +60,16 @@ class Contract extends Component {
   }
 
   render() {
-    const name = this.state.name && <p>{this.state.name}</p>;
-    const symbol = this.state.symbol && <p>{this.state.symbol}</p>;
-    const decimals = this.state.decimals > 0 && <p>{this.state.decimals}</p>;
     return (
       <div style={{padding: '1em', margin: '1em', border: '1px solid black'}}>
         <h1>Contract</h1>
-        <button onClick={() => this.props.handleSimpleTokenName(this.props.web3)}>Name</button>
-        <button onClick={() => this.handleSymbol()}>Symbol</button>
-        <button onClick={() => this.handleDecimals()}>Decimals</button>
+        <button onClick={() => this.props.handleSimpleTokenName(this.props.web3.version.network)}>Name</button>
+        <button onClick={() => this.props.handleSimpleTokenSymbol(this.props.web3.version.network)}>Symbol</button>
+        <button onClick={() => this.props.handleSimpleTokenDecimals(this.props.web3.version.network)}>Decimals</button>
         <div>
-          {name}
-          {symbol}
-          {decimals}
+          {this.props.simpleToken.name}
+          {this.props.simpleToken.symbol}
+          {this.props.simpleToken.decimals}
         </div>
       </div>
     );

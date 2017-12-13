@@ -7616,7 +7616,7 @@ web3@^0.18.0, web3@^0.18.2:
     xhr2 "*"
     xmlhttprequest "*"
 
-web3@^0.20.1:
+web3@^0.20.2:
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/web3/-/web3-0.20.2.tgz#c54dac5fc0e377399c04c1a6ecbb12e4513278d6"
   dependencies:
