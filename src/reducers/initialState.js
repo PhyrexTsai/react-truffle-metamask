@@ -2,5 +2,6 @@ export default {
   isFecthing: false,
   count: 0,
   message: '',
-  health: ''
+  health: '',
+  simpleToken: {}
 }; 

@@ -17,6 +17,7 @@ class App extends Component {
   }
 
   setWeb3(web3) {
+    // TODO inject contracts at here, and set provider int setWeb3
     this.setState({web3});
   }
 

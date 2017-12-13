@@ -66,7 +66,7 @@ class Contract extends Component {
     return (
       <div style={{padding: '1em', margin: '1em', border: '1px solid black'}}>
         <h1>Contract</h1>
-        <button onClick={() => this.handleName()}>Name</button>
+        <button onClick={() => this.props.handleSimpleTokenName(this.props.web3)}>Name</button>
         <button onClick={() => this.handleSymbol()}>Symbol</button>
         <button onClick={() => this.handleDecimals()}>Decimals</button>
         <div>

@@ -26,7 +26,12 @@ export const contractJSON = (web3) => {
   console.log(_name);
 }
 
-const name = async () => {
+export const getName = (web3) => {
+  setWeb3Provider(web3);
+  return 'text';
+}
+
+const name = async (web3) => {
   try {
     const instance = await simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a');
     const name = await instance.name.call();

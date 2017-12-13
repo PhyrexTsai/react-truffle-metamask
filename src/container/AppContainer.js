@@ -4,15 +4,17 @@ import {
   addAction,
   subAction
 } from '../actions/counterActions';
-import {
-  healthAction
-} from '../actions/healthActions';
+import { healthAction } from '../actions/healthActions';
+import { 
+  simpleTokenNameAction 
+} from '../actions/simpleTokenActions';
 
 const  mapStateToProps = (state) => ({
   isFetching: state.isFetching,
   count: state.count,
   message: state.message,
-  health: state.health
+  health: state.health,
+  simpleToken: state.simpleToken,
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -25,6 +27,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleHealth: () => {
       dispatch(healthAction());
+    },
+    handleSimpleTokenName: (web3) => {
+      dispatch(simpleTokenNameAction(web3));
     }
   }
 };
