@@ -4,12 +4,18 @@ This project is design to connect to Ethereum blockchain and interact with MetaM
 
 ### Technical stack
 
+#### Frontend
 - React
 - Redux
 - Saga
-- Sass
-- Truffle
 - Web3(MetaMask)
+
+#### UI
+- Sass
+- Material-UI
+
+#### Smart contract/Solidity
+- Truffle
 
 ### Install flow
 

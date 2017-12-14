@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {MetaMask} from './MetaMask/MetaMask';
-import {Counter} from './Counter';
 import {Health} from './Health';
 import Contract from './Contract';
 import Button from './Button';
@@ -25,7 +24,6 @@ class App extends Component {
     return (
       <div className="App">
         <MetaMask {...this.state} setWeb3={this.setWeb3}/>
-        <Counter {...this.props} />
         <Health {...this.props} />
         <Contract {...this.props} {...this.state} />
         <Button {...this.state}/>
