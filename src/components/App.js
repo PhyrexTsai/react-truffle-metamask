@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {MetaMask} from './MetaMask/MetaMask';
 import {Health} from './Health';
 import Contract from './Contract';
-import Button from './Button';
-import {Warning} from './Warning';
+import SendTransactoin from './SendTransaction';
+import {Warning} from './Warning/Warning';
 import {Top} from './Top/Top';
 import './App.css';
 
@@ -17,7 +17,6 @@ class App extends Component {
   }
 
   setWeb3(web3) {
-    // TODO inject contracts at here, and set provider int setWeb3
     this.setState({web3});
   }
 
@@ -29,7 +28,7 @@ class App extends Component {
         <MetaMask {...this.props} {...this.state} setWeb3={this.setWeb3}/>
         <Health {...this.props} />
         <Contract {...this.props} {...this.state} />
-        <Button {...this.props} {...this.state}/>
+        <SendTransactoin {...this.props} {...this.state}/>
       </div>
     );
   }

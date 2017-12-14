@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Button extends Component {
+class SendTransaction extends Component {
   constructor(props) {
     super(props);
 
@@ -10,8 +10,8 @@ class Button extends Component {
   handleSubmit() {
     let self = this;
     this.props.web3.eth.sendTransaction({
-      from: this.props.web3.eth.accounts[0], 
-      to: this.props.web3.eth.accounts[0],
+      from: this.props.metaMask.account, 
+      to: this.props.metaMask.account,
       value: this.props.web3.toWei(1, 'ether'),
       data: 'dead' }, function(err, result) {
         if (err) {
@@ -34,4 +34,4 @@ class Button extends Component {
   }
 }
 
-export default Button;
+export default SendTransaction;
