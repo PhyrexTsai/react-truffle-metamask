@@ -8,8 +8,6 @@ import Dialog, {
   DialogTitle,
 } from 'material-ui/Dialog';
 import Slide from 'material-ui/transitions/Slide';
-import IconButton from 'material-ui/IconButton';
-import CloseIcon from 'material-ui-icons/Close';
 
 const messages = {
   'LOAD_MATAMASK_WALLET_ERROR': 'Load metamask wallet error, maybe try Metamask later, or upload a wallet json file.',
@@ -24,12 +22,6 @@ const MetaMaskInstallDialog = (props) => (
     className="MetaMaskDialog"
     open={props.metaMaskInstallDialogOpen}
     transition={Slide}>
-    <IconButton
-      color="primary"
-      onClick={props.handleMetaMaskInstallDialogClose}
-      aria-label="Close">
-      <CloseIcon/>
-    </IconButton>
     <DialogTitle>{"Oops, you haven't install MetaMask"}</DialogTitle>
     <DialogContent>
       <DialogContentText>
@@ -37,10 +29,10 @@ const MetaMaskInstallDialog = (props) => (
       </DialogContentText>
     </DialogContent>
     <DialogActions>
-      <Button onClick={props.handleMetaMaskInstallDialogClose} color="primary">
+      <Button raised href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?utm_source=chrome-ntp-icon" color="primary">
         Install MetaMask
       </Button>
-      <Button onClick={props.handleMetaMaskInstallDialogClose} color="primary">
+      <Button raised onClick={props.handleMetaMaskInstallDialogClose} color="primary">
         I understand, continue
       </Button>
     </DialogActions>
@@ -52,12 +44,6 @@ const MetaMaskLockDialog = (props) => (
     className="MetaMaskDialog"
     open={props.metaMaskLockDialogOpen}
     transition={Slide}>
-    <IconButton
-      color="primary"
-      onClick={props.handleMetaMaskLockDialogClose}
-      aria-label="Close">
-      <CloseIcon/>
-    </IconButton>
     <DialogTitle>{"Oops, your MetaMask is locked"}</DialogTitle>
     <DialogContent>
       <DialogContentText>
@@ -65,7 +51,7 @@ const MetaMaskLockDialog = (props) => (
       </DialogContentText>
     </DialogContent>
     <DialogActions>
-      <Button onClick={props.handleMetaMaskLockDialogClose} color="primary">
+      <Button raised onClick={props.handleMetaMaskLockDialogClose} color="primary">
         I understand, continue
       </Button>
     </DialogActions>
@@ -77,8 +63,6 @@ export class MetaMask extends Component {
     super(props);
     this.state = {
       message: '',
-      networkId: null,
-      account: null,
       metaMaskInstallDialogOpen: false,
       metaMaskLockDialogOpen: false,
       disableDialog: false
@@ -104,13 +88,12 @@ export class MetaMask extends Component {
         } else {
           if (accounts.length === 0) {
             this.props.handleMetaMaskAccount(null);
-            this.setState({metaMaskLockDialogOpen: true, account: null, message: messages.EMPTY_METAMASK_ACCOUNT})
+            this.setState({metaMaskLockDialogOpen: true, message: messages.EMPTY_METAMASK_ACCOUNT})
           } else {
             // if account changed then change redux state
             if (accounts[0] !== this.props.metaMask.account) {
               this.props.handleMetaMaskAccount(accounts[0]);
             }
-            this.setState({account: accounts[0], message: ''}); // defaultAccount as same as accounts[0]
           }
         }
       });
@@ -123,13 +106,12 @@ export class MetaMask extends Component {
       this.props.web3.version.getNetwork((err, netId) => {
         if (err) {
           this.props.handleMetaMaskNetwork(null);
-          this.setState({metaMaskLockDialogOpen: true, networkId: null, message: messages.NETWORK_ERROR });
+          this.setState({metaMaskLockDialogOpen: true, message: messages.NETWORK_ERROR });
         } else {
           // if network changed then change redux state
           if (netId !== this.props.metaMask.network) {
             this.props.handleMetaMaskNetwork(netId);
           }
-          this.setState({networkId: netId});
         }
       });
     }
@@ -168,15 +150,6 @@ export class MetaMask extends Component {
   }
 
   render() {
-    const message = this.state.message &&
-      <p>Message: {this.state.message}</p>;
-
-    const currentNetwork = this.props.metaMask.network &&
-      <p>Current Network: {this.props.metaMask.network}</p>;
-
-    const accountInfo = this.props.metaMask.account &&
-      <p>Address: {this.props.metaMask.account}</p>;
-
     const metaMaskInstall = this.state.disableDialog === false &&
       <MetaMaskInstallDialog 
         {...this.state}
@@ -191,8 +164,6 @@ export class MetaMask extends Component {
 
     return (
       <div className="MetaMask">
-        {accountInfo}
-        {currentNetwork}
         {metaMaskInstall}
         {metaMaskLock}
       </div>
