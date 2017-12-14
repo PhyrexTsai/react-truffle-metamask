@@ -3,7 +3,11 @@ export default {
   count: 0,
   system: '',
   health: '',
-  simpleToken: {},
+  simpleToken: {
+    name: '',
+    symbol: '',
+    decimals: ''
+  },
   warning: {
     message: '',
     open: false

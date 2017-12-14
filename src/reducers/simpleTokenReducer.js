@@ -2,15 +2,15 @@ import initialState from './initialState';
 import * as types from '../constants/actionTypes';
 
 const fetchName = (state, action) => {
-  return {name: action.result};
+  return {name: action.result, symbol: state.symbol, decimals: state.decimals};
 }
 
 const fetchSymbol = (state, action) => {
-  return {symbol: action.result};
+  return {name: state.name, symbol: action.result, decimals: state.decimals};
 }
 
 const fetchDecimals = (state, action) => {
-  return {decimals: action.result};
+  return {name: state.name, symbol: state.symbol, decimals: action.result};
 }
 
 export default function (simpleToken = initialState.simpleToken, action) {
