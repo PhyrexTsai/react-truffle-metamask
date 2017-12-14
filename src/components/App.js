@@ -4,6 +4,7 @@ import {Health} from './Health';
 import Contract from './Contract';
 import Button from './Button';
 import {Warning} from './Warning';
+import {Top} from './Top/Top';
 import './App.css';
 
 class App extends Component {
@@ -23,8 +24,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Top/>
         <Warning {...this.props}/>
-        <MetaMask {...this.state} setWeb3={this.setWeb3}/>
+        <MetaMask {...this.props} {...this.state} setWeb3={this.setWeb3}/>
         <Health {...this.props} />
         <Contract {...this.props} {...this.state} />
         <Button {...this.props} {...this.state}/>

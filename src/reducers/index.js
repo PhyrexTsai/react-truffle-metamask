@@ -5,6 +5,7 @@ import isFetching from './fetchingReducer';
 import health from './healthReducer';
 import simpleToken from './simpleTokenReducer';
 import warning from './warningReducer';
+import metaMask from './metaMaskReducer';
 
 const appReducer = combineReducers({
   count,
@@ -12,7 +13,8 @@ const appReducer = combineReducers({
   isFetching,
   health,
   simpleToken,
-  warning
+  warning,
+  metaMask
 });
 
 const rootReducer = (state, action) => {

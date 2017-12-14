@@ -7,5 +7,9 @@ export default {
   warning: {
     message: '',
     open: false
+  },
+  metaMask: {
+    account: null,
+    network: null
   }
 }; 

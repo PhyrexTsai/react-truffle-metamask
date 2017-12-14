@@ -14,6 +14,10 @@ import {
   warningOpenAction,
   warningCloseAction
 } from '../actions/warningActions';
+import {
+  metaMaskAccountAction,
+  metaMaskNetworkAction
+} from '../actions/metaMaskActions';
 
 const  mapStateToProps = (state) => ({
   isFetching: state.isFetching,
@@ -21,7 +25,8 @@ const  mapStateToProps = (state) => ({
   error: state.error,
   health: state.health,
   simpleToken: state.simpleToken,
-  warning: state.warning
+  warning: state.warning,
+  metaMask: state.metaMask
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -49,6 +54,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleWarningClose: () => {
       dispatch(warningCloseAction());
+    },
+    handleMetaMaskAccount: (account) => {
+      dispatch(metaMaskAccountAction(account));
+    },
+    handleMetaMaskNetwork: (network) => {
+      dispatch(metaMaskNetworkAction(network));
     }
   }
 };
