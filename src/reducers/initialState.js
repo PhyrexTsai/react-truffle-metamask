@@ -1,7 +1,11 @@
 export default {
   isFecthing: false,
   count: 0,
-  message: '',
+  system: '',
   health: '',
-  simpleToken: {}
+  simpleToken: {},
+  warning: {
+    message: '',
+    open: false
+  }
 }; 

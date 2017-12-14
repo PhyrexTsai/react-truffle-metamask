@@ -17,3 +17,7 @@ export const SIMPLE_TOKEN_DECIMALS_SUCCESS = 'SIMPLE_TOKEN_DECIMALS_SUCCESS';
 // for showing progress/onloading
 export const FETCHING = 'FETCHING';
 export const FETCH_COMPLETE = 'FETCH_COMPLETE';
+
+// for showing warning message
+export const WARNING_OPEN = 'WARNING_OPEN';
+export const WARNING_CLOSE = 'WARNING_CLOSE';

@@ -5,11 +5,11 @@ const systemError = (state, action) => {
   return {message: action.error};
 }
 
-export default function (message = initialState.message, action) {
+export default function (system = initialState.system, action) {
   switch (action.type) {
     case types.SYSTEM_ERROR:
-      return systemError(message, action);
+      return systemError(system, action);
     default:
-      return message;
+      return system;
   }
 }

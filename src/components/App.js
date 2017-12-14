@@ -3,13 +3,13 @@ import {MetaMask} from './MetaMask/MetaMask';
 import {Health} from './Health';
 import Contract from './Contract';
 import Button from './Button';
+import {Warning} from './Warning';
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: '',
       web3: null,
     };
     this.setWeb3 = this.setWeb3.bind(this);
@@ -23,10 +23,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Warning {...this.props}/>
         <MetaMask {...this.state} setWeb3={this.setWeb3}/>
         <Health {...this.props} />
         <Contract {...this.props} {...this.state} />
-        <Button {...this.state}/>
+        <Button {...this.props} {...this.state}/>
       </div>
     );
   }

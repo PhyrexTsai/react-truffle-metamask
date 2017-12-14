@@ -1,16 +1,18 @@
 import { combineReducers } from 'redux';
 import count from './counterReducer';
-import message from './messageReducer';
+import system from './systemReducer';
 import isFetching from './fetchingReducer';
 import health from './healthReducer';
 import simpleToken from './simpleTokenReducer';
+import warning from './warningReducer';
 
 const appReducer = combineReducers({
   count,
-  message,
+  system,
   isFetching,
   health,
-  simpleToken
+  simpleToken,
+  warning
 });
 
 const rootReducer = (state, action) => {

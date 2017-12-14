@@ -10,13 +10,18 @@ import {
   simpleTokenSymbolAction,
   simpleTokenDecimalsAction,
 } from '../actions/simpleTokenActions';
+import { 
+  warningOpenAction,
+  warningCloseAction
+} from '../actions/warningActions';
 
 const  mapStateToProps = (state) => ({
   isFetching: state.isFetching,
   count: state.count,
-  message: state.message,
+  error: state.error,
   health: state.health,
   simpleToken: state.simpleToken,
+  warning: state.warning
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -38,6 +43,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleSimpleTokenDecimals: (networkId) => {
       dispatch(simpleTokenDecimalsAction(networkId));
+    },
+    handleWarningOpen: (message) => {
+      dispatch(warningOpenAction(message));
+    },
+    handleWarningClose: () => {
+      dispatch(warningCloseAction());
     }
   }
 };

@@ -12,13 +12,17 @@ class Button extends Component {
   }
 
   handleSubmit() {
+    let self = this;
     this.props.web3.eth.sendTransaction({
       from: this.props.web3.eth.accounts[0], 
       to: this.props.web3.eth.accounts[0],
       value: this.props.web3.toWei(1, 'ether'),
       data: 'dead' }, function(err, result) {
-        console.log('err:', err.message);
-        console.log('result:', result);
+        if (err) {
+          self.props.handleWarningOpen(err.message);
+        } else {
+          self.props.handleWarningOpen(result);
+        }
       });
   }
 
