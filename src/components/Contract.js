@@ -1,65 +1,7 @@
 import React, { Component } from 'react';
 import { LinearProgress } from 'material-ui/Progress';
-/*import SimpleToken from '../lib/SimpleToken.json';
-
-const contract = require('truffle-contract');
-const simpleToken = contract(SimpleToken);*/
 
 class Contract extends Component {
-  constructor(props) {
-    super(props);
-    /*this.state = {
-      name: '',
-      symbol: '',
-      decimals: 0
-    };
-    this.handleName = this.handleName.bind(this);
-    this.handleDecimals = this.handleDecimals.bind(this);
-    this.handleSymbol = this.handleSymbol.bind(this);*/
-  }
-
-  /*handleName() {
-    let self = this;
-    simpleToken.setProvider(this.props.web3.currentProvider);
-    var simpleTokenInstance;
-    simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a').then(function(instance) {
-      simpleTokenInstance = instance;
-      return simpleTokenInstance.name.call();
-    }).then(function(result) {
-      self.setState({name: result});
-    }).catch(function(err) {
-      console.log('err: ', err);
-    })
-  }
-
-  handleDecimals() {
-    let self = this;
-    simpleToken.setProvider(this.props.web3.currentProvider);
-    var simpleTokenInstance;
-    simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a').then(function(instance) {
-      simpleTokenInstance = instance;
-      return simpleTokenInstance.decimals.call();
-    }).then(function(result) {
-      self.setState({decimals: result.toNumber()});
-    }).catch(function(err) {
-      console.log('err: ', err);
-    })
-  }
-
-  handleSymbol() {
-    let self = this;
-    simpleToken.setProvider(this.props.web3.currentProvider);
-    var simpleTokenInstance;
-    simpleToken.at('0x131855dda0aaff096f6854854c55a4debf61077a').then(function(instance) {
-      simpleTokenInstance = instance;
-      return simpleTokenInstance.symbol.call();
-    }).then(function(result) {
-      self.setState({symbol: result});
-    }).catch(function(err) {
-      console.log('err: ', err);
-    })
-  }*/
-
   // 將 read contract method 透過 redux 儲存與 saga 非同步呼叫，將 web3 當成 API 使用
   render() {
     const name = this.props.simpleToken && <p>{this.props.simpleToken.name}</p>;

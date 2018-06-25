@@ -11,4 +11,3 @@ const store = configureStore();
 ReactDOM.render(<Provider store={store}><AppContainer /></Provider>, 
   document.getElementById('root'));
 registerServiceWorker();
-

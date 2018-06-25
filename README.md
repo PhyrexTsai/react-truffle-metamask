@@ -2,6 +2,8 @@
 
 This project is design to connect to Ethereum blockchain and interact with MetaMask to send transaction on smart contract.  
 
+## 💡[Document](./DOCUMENT.md)
+
 ### Technical stack
 
 #### Frontend
@@ -26,10 +28,10 @@ git clone https://github.com/PhyrexTsai/react-truffle-metamask
 cd react-truffle-metamask
 ```
 
-#### Install testrpc
+#### Install ganache
 
 ```
-npm install -g ethereumjs-testrpc
+npm install -g ganache-cli
 ```
 
 #### Install truffle
@@ -49,10 +51,14 @@ truffle compile
 
 Open a new console
 ```
-testrpc
+ganache-cli
 ```
 
 ```
 truffle migrate
 yarn start
 ```
+
+## Reference
+ganache-cli: https://github.com/trufflesuite/ganache-cli
+truffle: https://github.com/trufflesuite/truffle
