@@ -60,5 +60,6 @@ yarn start
 ```
 
 ## Reference
-ganache-cli: https://github.com/trufflesuite/ganache-cli
-truffle: https://github.com/trufflesuite/truffle
+
+- ganache-cli: https://github.com/trufflesuite/ganache-cli
+- truffle: https://github.com/trufflesuite/truffle
