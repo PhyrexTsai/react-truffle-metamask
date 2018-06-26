@@ -25,5 +25,3 @@ export default function (simpleToken = initialState.simpleToken, action) {
       return simpleToken;
   }
 }
-
-

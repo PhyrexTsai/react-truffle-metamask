@@ -6,6 +6,7 @@ import health from './healthReducer';
 import simpleToken from './simpleTokenReducer';
 import warning from './warningReducer';
 import metaMask from './metaMaskReducer';
+import bluzelle from './bluzelleReducer';
 
 const appReducer = combineReducers({
   count,
@@ -14,7 +15,8 @@ const appReducer = combineReducers({
   health,
   simpleToken,
   warning,
-  metaMask
+  metaMask,
+  bluzelle
 });
 
 const rootReducer = (state, action) => {
