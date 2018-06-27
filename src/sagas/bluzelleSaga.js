@@ -5,7 +5,8 @@ import {
   update,
   remove,
   read,
-  keys
+  keys,
+  has
 } from '../lib/bluzelle';
 
 export function* bluzelleCreateSaga({key, value}) {

@@ -17,10 +17,10 @@ This project is design to connect to Ethereum blockchain and interact with MetaM
 - Material-UI
 
 #### Smart contract/Solidity
-- Truffle
+- [Truffle](./TRUFFLE.md)
 
 #### Database
-- Bluzelle
+- [Bluzelle](./BLUZELLE.md)
 
 ### Install flow
 
