@@ -50,3 +50,11 @@ export const keys = () => {
     return error;
   });
 };
+
+export const has = (key) => {
+  bluzelle.has(key).then(result => {
+    return result;
+  }, error => {
+    return error;
+  })
+}

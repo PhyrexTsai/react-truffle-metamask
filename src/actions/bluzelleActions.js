@@ -25,3 +25,8 @@ export const bluzelleReadAction = (key) => ({
 export const bluzelleKeysAction = () => ({
   type: types.BLUZELLE_REMOVE
 });
+
+export const bluzelleHasActions = (key) => ({
+  type: types.BLUZELLE_HAS,
+  key
+})

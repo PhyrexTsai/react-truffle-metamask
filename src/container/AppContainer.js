@@ -23,7 +23,8 @@ import {
   bluzelleUpdateAction, 
   bluzelleRemoveAction, 
   bluzelleReadAction, 
-  bluzelleKeysAction 
+  bluzelleKeysAction, 
+  bluzelleHasActions
 } from '../actions/bluzelleActions';
 
 const  mapStateToProps = (state) => ({
@@ -82,6 +83,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleBluzelleKeys: () => {
       dispatch(bluzelleKeysAction());
+    },
+    handleBluzelleHas: (key) => {
+      dispatch(bluzelleHasActions(key));
     }
   }
 };

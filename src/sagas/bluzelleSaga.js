@@ -68,3 +68,14 @@ export function* bluzelleKeysSaga() {
   }
 };
 
+export function* bluzelleHasSaga({key}) {
+  try {
+    yield put({ type: types.FETCHING}); 
+    const bluzelleHasResult = yield call(has, key);
+    yield put({ type: types.FETCH_COMPLETE});
+
+    yield put({ type: types.BLUZELLE_HAS_SUCCESS, result: bluzelleHasResult });
+  } catch (err) {
+    yield put({ type: types.SYSTEM_ERROR, error: err });
+  }
+}

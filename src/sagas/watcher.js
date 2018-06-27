@@ -11,7 +11,8 @@ import {
   bluzelleUpdateSaga, 
   bluzelleRemoveSaga, 
   bluzelleReadSaga, 
-  bluzelleKeysSaga 
+  bluzelleKeysSaga, 
+  bluzelleHasSaga
 } from './bluzelleSaga';
 
 export function* watchHealth() {
@@ -48,4 +49,8 @@ export function* watchBluzelleRead() {
 
 export function* watchBluzelleKeys() {
   yield takeLatest(types.BLUZELLE_KEYS, bluzelleKeysSaga);
+}
+
+export function* watchBluzelleHas() {
+  yield takeLatest(types.BLUZELLE_HAS, bluzelleHasSaga);
 }

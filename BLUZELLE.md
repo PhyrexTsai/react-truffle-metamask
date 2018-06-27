@@ -32,6 +32,13 @@ bluzelle.connect(BLUZELLE_WEBSOCKET, BLUZELLE_UUID);
 
 ### Bluzelle CRUD Component
 
-```javascript
+File: [bluzelle.js](./src/lib/bluzelle.js)
+API Document: [https://bluzelle.github.io/api/](https://bluzelle.github.io/api/)
 
-```
+API list:
+- create
+- update
+- remove
+- read
+- keys
+- has

@@ -21,6 +21,10 @@ const keys = (state, action) => {
   return {keys: action.result};
 }
 
+const has = (state, action) => {
+  return {has: action.result};
+}
+
 export default function (bluzelle = initialState.simpleToken, action) {
   switch (action.type) {
     case types.BLUZELLE_CREATE_SUCCESS:
@@ -33,6 +37,8 @@ export default function (bluzelle = initialState.simpleToken, action) {
       return read(bluzelle, action);
     case types.BLUZELLE_KEYS_SUCCESS:
       return keys(bluzelle, action);
+    case types.BLUZELLE_HAS_SUCCESS:
+      return has(bluzelle, action);
     default:
       return bluzelle;
   }

@@ -19,6 +19,7 @@ export default {
   bluzelle: {
     keys: [],
     key: '',
-    value: ''
+    value: '',
+    has: false
   }
 }; 
